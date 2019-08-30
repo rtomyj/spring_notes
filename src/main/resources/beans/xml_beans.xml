@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:annotation-config />
+
+	<!-- Bean xml_config_phone will use xml to configure the object Phone. -->
+	<bean id="xml_config_phone" class="com.spring_notes.model.Phone">
+		<property name="name">
+			<value>iPhone</value>
+		</property>
+
+		<property name="manufacture">
+			<value>Apple</value>
+		</property>
+
+		<property name="screenSize">
+			<value>4.7</value>
+		</property>
+	 </bean>
+
+	<!--
+		Bean autowired_setters uses @Autowired annotation on setter methods.
+		This will allow default values for the props using the @Value annotation next to the param definitions -->
+	<bean id="autowired_setters" class="com.spring_notes.model.Phone" />
+
+
+	<!--
+		Bean phone_purchase uses @Autowired annotation on properties/variables.
+		For this bean both @Value and @Qualifier annotations are used.
+		@Value specifies the default value within the annotation.
+		@Qualifier specifies which bean to use... There are two Phone beans configured above causing abiguity.
+		@Qualifier will remove abiguity by specifiying (by id) which bean to use. -->
+	<bean id="phone_purchase" class="com.spring_notes.model.PhonePurchase" />
+
+	<!--
+		Bean life_cycle is used to test life cycle methods of beans -->
+	<bean id="life_cycle" class="com.spring_notes.model.LifeCycle" />
+
+</beans>
