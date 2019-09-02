@@ -56,4 +56,16 @@ public class Phone
 		return String.format("%s %s %f", name, manufacture, screenSize);
 	}
 
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj)	return true;
+		if (obj == null || this.getClass() != obj.getClass())	return false;
+
+		Phone phoneObj = (Phone) obj;
+		if (this.name.equals(phoneObj.name) && this.manufacture.equals(phoneObj.manufacture) && this.screenSize == phoneObj.screenSize)	return true;
+
+		return false;
+	}
+
 }
