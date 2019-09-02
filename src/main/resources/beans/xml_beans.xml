@@ -7,10 +7,10 @@
 
 	<context:annotation-config />
 
-	<!-- Bean xml_config_phone will use xml to configure the object Phone. -->
-	<bean id="xml_config_phone" class="com.spring_notes.model.Phone">
+	<!-- Bean iphone_xs will use xml to configure the object Phone. -->
+	<bean id="iphone_xs" class="com.spring_notes.model.Phone">
 		<property name="name">
-			<value>iPhone</value>
+			<value>iPhone xs</value>
 		</property>
 
 		<property name="manufacture">
@@ -18,7 +18,7 @@
 		</property>
 
 		<property name="screenSize">
-			<value>4.7</value>
+			<value>5.8</value>
 		</property>
 	 </bean>
 
@@ -39,5 +39,23 @@
 	<!--
 		Bean life_cycle is used to test life cycle methods of beans -->
 	<bean id="life_cycle" class="com.spring_notes.model.LifeCycle" />
+
+	<!--
+		Bean scope specifies how beans behave.
+		Singleton beans have one shared reference for all beans created by the configuration
+		Prototype beans have X references where X = number of beans created -->
+	<bean id="singleton" class="com.spring_notes.model.Phone" />
+	<bean id="prototype" class="com.spring_notes.model.Phone" scope="prototype" />
+
+	<!--
+		Bean inheritence uses a parent bean to specify values for the children beans -->
+	<bean id="iphone" class="com.spring_notes.model.Phone" parent="iphone_xs">
+		<property name="name">
+			<value>iPhone</value>
+		</property>
+		<property name="screenSize">
+			<value>4.0</value>
+		</property>
+	</bean>
 
 </beans>
