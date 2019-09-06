@@ -1,5 +1,6 @@
 package com.spring_notes;
 
+import com.spring_notes.component.ComputerComponent;
 import com.spring_notes.model.LifeCycle;
 import com.spring_notes.model.Phone;
 import com.spring_notes.model.PhonePurchase;
@@ -68,5 +69,22 @@ public class SpringNotes {
 		System.out.println(iphone.toString());
 
 		((ClassPathXmlApplicationContext) appContext).close();	// removes context with bean info for xml created beans
+
+
+		/*
+			Using annotation based beans.
+			To configure annotation based beans the xml config file will need to include two props:
+				<context:annotation-config />
+				<context:component-scan base-package="" />
+
+			Notice that beans are not configured in the xml file. The component-scan prop will specify the package containing the bean class definitions
+		*/
+		appContext = new ClassPathXmlApplicationContext("beans/annotation_beans.xml");
+
+		ComputerComponent computer = (ComputerComponent) appContext.getBean("sample");
+		System.out.println(computer.toString());
+
+
+
 	}
 }

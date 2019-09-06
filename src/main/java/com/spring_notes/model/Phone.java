@@ -8,6 +8,15 @@ public class Phone
 	private String name, manufacture;
 	private float screenSize;
 
+	public Phone() {}
+
+	public Phone(String name, String manufacture, float screenSize)
+	{
+		this.name = name;
+		this.manufacture = manufacture;
+		this.screenSize = screenSize;
+	}
+
 	/*
 		Getters
 	*/
