@@ -16,7 +16,7 @@ public class SpringNotesAnnotation
 				<context:annotation-config />
 				<context:component-scan base-package="" />
 	*/
-	public void annotationCongfigBaseExample()
+	public void annotationConfigBaseExample()
 	{
 		appContext = new ClassPathXmlApplicationContext("beans/annotation_beans.xml");
 

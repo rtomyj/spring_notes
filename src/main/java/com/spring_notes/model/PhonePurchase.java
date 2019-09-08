@@ -17,6 +17,12 @@ public class PhonePurchase
 	private int qty;
 
 
+	public void setPhone(Phone phone)
+	{
+		this.phone = phone;
+	}
+
+
 	@Override
 	public String toString()
 	{

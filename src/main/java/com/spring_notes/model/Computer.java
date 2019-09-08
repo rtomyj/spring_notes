@@ -13,6 +13,16 @@ public class Computer
 		this.year = year;
 	}
 
+	public void setModel(String model)
+	{
+		this.model = model;
+	}
+
+	public void setYear(int year)
+	{
+		this.year = year;
+	}
+
 	public String toString()
 	{
 		return String.format("Computer %s from %d", this.model, this.year);
