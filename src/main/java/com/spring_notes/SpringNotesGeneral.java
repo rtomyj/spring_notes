@@ -12,7 +12,7 @@ public class SpringNotesGeneral
 
 	public SpringNotesGeneral()
 	{
-		String[] xml_configs = { "beans/xml_beans.xml" };
+		String[] xml_configs = { "beans/general_beans.xml" };
 
 		appContext = new ClassPathXmlApplicationContext(xml_configs);
 

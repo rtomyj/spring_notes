@@ -22,8 +22,15 @@ public class SpringNotesXML
 		Phone phone = (Phone) appContext.getBean("iphone_xs");
 		System.out.println(phone.toString());
 
-		// using bean name (first arg) and class being used (second arg)
-		PhonePurchase autowiredSetters = (PhonePurchase) appContext.getBean("phone_purchase", PhonePurchase.class);
-		System.out.println(autowiredSetters.toString());
+		phone = appContext.getBean("iphone_11", Phone.class);
+		System.out.println(phone.toString());
+
+		phone = appContext.getBean("galaxy_s10", Phone.class);
+		System.out.println(phone.toString());
+
+		phone = appContext.getBean("pixel", Phone.class);
+		System.out.println(phone.toString());
+
+
 	}
 }

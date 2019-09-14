@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!--
+		Bean phone_purchase uses @Autowired annotation on properties/variables.
+		For this bean both @Value and @Qualifier annotations are used.
+		@Value specifies the default value within the annotation.
+		@Qualifier specifies which bean to use... There are two Phone beans configured above causing ambiguity.
+		@Qualifier will remove ambiguity by specifying (by id) which bean to use. -->
+	<bean id="phone_purchase" class="com.spring_notes.model.PhonePurchase" />
+
+	<!--
+		Bean life_cycle is used to test life cycle methods of beans -->
+	<bean id="life_cycle" class="com.spring_notes.model.LifeCycle" />
+
+	<!--
+		Bean scope specifies how beans behave.
+		Singleton beans have one shared reference for all beans created by the configuration
+		Prototype beans have X references where X = number of beans created -->
+	<bean id="singleton" class="com.spring_notes.model.Phone" />
+	<bean id="prototype" class="com.spring_notes.model.Phone" scope="prototype" />
+
+	<!--
+		Bean inheritance uses a parent bean to specify values for the children beans -->
+	<bean id="iphone" class="com.spring_notes.model.Phone" parent="iphone_xs">
+		<property name="name">
+			<value>iPhone</value>
+		</property>
+		<property name="screenSize">
+			<value>4.0</value>
+		</property>
+	</bean>
+
+</beans>
