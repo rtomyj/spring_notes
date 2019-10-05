@@ -42,19 +42,19 @@ public class Phone
 	*/
 
 	@Autowired
-	public void setName(@Value("iPhone XS Max") String name)
+	public void setName(@Value("iPhone 11") String name)
 	{
 		this.name = name;
 	}
 
 	@Autowired
-	public void setManufacture(@Value("Apple Inc.") String manufacture)
+	public void setManufacture(@Value("Apple") String manufacture)
 	{
 		this.manufacture = manufacture;
 	}
 
 	@Autowired
-	public void setScreenSize(@Value("6.5") float screenSize)
+	public void setScreenSize(@Value("6.3") float screenSize)
 	{
 		this.screenSize = screenSize;
 	}

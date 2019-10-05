@@ -8,17 +8,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringNotesApp {
 
 	public static void main(String[] args) {
-		/*
 		new SpringNotesXML().xmlConfigBaseExample();
 
+		/*
 		SpringNotesGeneral generalBeanKnowledge = new SpringNotesGeneral();
 		generalBeanKnowledge.beanScope();
 		generalBeanKnowledge.closeContext();
 
 		new SpringNotesAnnotation().annotationConfigBaseExample();
-		*/
 
 		new SpringNotesJavaConfig().javaConfigBaseExample();
+		*/
 
 	}
 

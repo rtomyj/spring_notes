@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<beans
- xmlns="http://www.springframework.org/schema/beans"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns:p="http://www.springframework.org/schema/p"
-xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/context
-		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+		default-autowire="byType"
+		>
 
 	<context:property-placeholder location="application.properties" />
 
@@ -20,7 +18,7 @@ xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation
 		</property>
 
 		<property name="manufacture">
-			<value>Apple</value>
+			<value>Apple Inc.</value>
 		</property>
 
 		<property name="screenSize">
@@ -48,5 +46,52 @@ xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation
 	<!-- Below Bean uses the p namespace (declared above) to use the setter methods for specific props
 	 -->
 	<bean id="pixel" class="com.spring_notes.model.Phone" p:name="Pixel 4" p:manufacture="Google" p:screenSize="5.0" />
+
+	<!--
+	-->
+	<bean id="iphone_5s" class="com.spring_notes.model.Phone" p:name="iPhone 5s" p:manufacture="Apple Inc." p:screenSize="5.0" primary="true" />
+	<bean id="purchase1" class="com.spring_notes.model.PhonePurchase" autowire="byType" p:qty="10" />
+
+	<!--
+	-->
+	<bean id="purchase2" class="com.spring_notes.model.PhonePurchase" autowire="constructor" />
+
+	<!--
+	 -->
+	<bean id="phone" class="com.spring_notes.model.Phone" p:name="Generic Smartphone" p:manufacture="FANG" p:screenSize="5.2" />
+	<bean id="purchase3" class="com.spring_notes.model.PhonePurchase" autowire="byName" p:qty="1" />
+
+	<!--
+	-->
+	<bean id="purchase4" class="com.spring_notes.model.PhonePurchase" p:qty="6" >
+		<property name="phone">
+			<bean class="com.spring_notes.model.Phone" p:name="Note 10" p:manufacture="Samsung" p:screenSize="6.8" primary="true" />
+		</property>
+	</bean>
+
+	<bean id="phones" class="com.spring_notes.model.PhoneCollections" >
+		<property name="phones">
+			<list>
+				<ref bean="iphone_xs" />
+				<ref bean="iphone_11" />
+				<ref bean="iphone_xs" />
+			</list>
+		</property>
+
+		<property name="uniquePhones">
+			<set>
+				<ref bean="iphone_xs" />
+				<ref bean="iphone_11" />
+				<ref bean="iphone_xs" />
+			</set>
+		</property>
+
+		<property name="NAME_maps_PHONE">
+			<map>
+				<entry key="Javi" value-ref="iphone_xs" />
+				<entry key="Lupe" value-ref="pixel" />
+			</map>
+		</property>
+	</bean>
 
 </beans>

@@ -16,12 +16,24 @@ public class PhonePurchase
 	@Value("5")
 	private int qty;
 
+	public PhonePurchase() {}
+
+	public PhonePurchase(Phone phone)
+	{
+		this.phone = phone;
+		this.qty = 3;
+	}
+
 
 	public void setPhone(Phone phone)
 	{
 		this.phone = phone;
 	}
 
+	public void setQty(int qty)
+	{
+		this.qty = qty;
+	}
 
 	@Override
 	public String toString()
